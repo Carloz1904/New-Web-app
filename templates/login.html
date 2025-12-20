@@ -1,10 +1,134 @@
+
+<!-- login -> Inicio de sesión -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión | Nocturno Café</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0f0f12',     // Fondo casi negro
+                            card: '#18181b',     // Fondo tarjetas
+                            input: '#27272a',    // Fondo inputs
+                            accent: '#9333ea',   // Morado base
+                            glow: '#a855f7',     // Morado brillo
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Fondo con imagen y superposición oscura */
+        .login-bg {
+            background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
 </head>
-<body>
-$END$
+<body class="bg-brand-dark text-gray-300 font-sans antialiased min-h-screen flex items-center justify-center relative overflow-hidden login-bg">
+
+    <div class="absolute inset-0 bg-black/80 backdrop-blur-sm z-0"></div>
+
+    <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-brand-accent/20 rounded-full blur-[100px] z-0 animate-float"></div>
+    <div class="absolute bottom-[-10%] right-[-10%] w-80 h-80 bg-purple-900/30 rounded-full blur-[100px] z-0 animate-float" style="animation-delay: 2s;"></div>
+
+    <div class="relative z-10 w-full max-w-md px-4">
+
+        <a href="index.html" class="inline-flex items-center text-sm text-gray-500 hover:text-brand-glow transition-colors mb-6 group">
+            <svg class="w-4 h-4 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+            Volver al inicio
+        </a>
+
+        <div class="bg-brand-card/90 backdrop-blur-xl border border-gray-800 rounded-2xl shadow-2xl p-8 sm:p-10">
+
+            <div class="text-center mb-8">
+                <div class="inline-block p-3 rounded-full bg-brand-dark border border-gray-800 mb-4 shadow-[0_0_15px_rgba(147,51,234,0.15)]">
+                    <span class="text-3xl">☕</span>
+                </div>
+                <h2 class="text-2xl font-bold text-white tracking-wide">Bienvenido de nuevo</h2>
+                <p class="text-sm text-gray-500 mt-2">Ingresa a tu cuenta de Nocturno Café</p>
+            </div>
+
+            <form action="#" class="space-y-6">
+
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-400 mb-2">Correo Electrónico</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <svg class="h-5 w-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path></svg>
+                        </div>
+                        <input type="email" id="email" class="block w-full pl-10 pr-3 py-3 bg-brand-input border border-gray-700 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent transition-all duration-300" placeholder="usuario@ejemplo.com">
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex justify-between items-center mb-2">
+                        <label for="password" class="block text-sm font-medium text-gray-400">Contraseña</label>
+                        <a href="#" class="text-xs text-brand-glow hover:text-purple-300 transition-colors">¿Olvidaste tu contraseña?</a>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <svg class="h-5 w-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                        </div>
+                        <input type="password" id="password" class="block w-full pl-10 pr-3 py-3 bg-brand-input border border-gray-700 rounded-lg text-white placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent transition-all duration-300" placeholder="••••••••">
+                    </div>
+                </div>
+
+                <button type="button" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-bold text-white bg-brand-accent hover:bg-brand-glow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent focus:ring-offset-gray-900 transition-all duration-300 shadow-[0_0_20px_rgba(147,51,234,0.4)] hover:shadow-[0_0_25px_rgba(147,51,234,0.6)] transform hover:-translate-y-0.5">
+                    Ingresar
+                </button>
+            </form>
+
+            <div class="mt-8 relative">
+                <div class="absolute inset-0 flex items-center" aria-hidden="true">
+                    <div class="w-full border-t border-gray-700"></div>
+                </div>
+                <div class="relative flex justify-center text-sm">
+                    <span class="px-2 bg-brand-card text-gray-500">O continúa con</span>
+                </div>
+            </div>
+
+            <div class="mt-6 grid grid-cols-2 gap-3">
+                <button type="button" class="w-full inline-flex justify-center py-2.5 px-4 border border-gray-700 rounded-lg shadow-sm bg-brand-dark text-sm font-medium text-gray-300 hover:bg-gray-800 hover:text-white transition-colors">
+                    <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z" />
+                    </svg>
+                </button>
+                <button type="button" class="w-full inline-flex justify-center py-2.5 px-4 border border-gray-700 rounded-lg shadow-sm bg-brand-dark text-sm font-medium text-gray-300 hover:bg-gray-800 hover:text-white transition-colors">
+                    <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="mt-8 text-center">
+                <p class="text-sm text-gray-500">
+                    ¿No tienes una cuenta?
+                    <a href="#" class="font-medium text-brand-glow hover:text-purple-300 transition-colors">Regístrate gratis</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>

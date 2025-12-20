@@ -20,3 +20,15 @@ class PantallaInicio(Resource):
 
         # Retornar el contenido renderizado en una respuesta
         return make_response(contenido)
+
+class login(Resource):
+    def get(self):
+
+        contenido = render_template('login.html')
+
+        return make_response(contenido)
+
+class sign_up(Resource):
+    def get(self):
+        contenido = render_template('sign_up.html')
+        return make_response(contenido)

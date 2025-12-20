@@ -12,4 +12,10 @@ def crear_rutas(api):
     # La ruta de inicio
     api.add_resource(PantallaInicio, '/')
 
+# Le damos una ruta al inicio de sesion
+    api.add_resource(login, '/login')
+
+# Le damos una ruta a la creacion de cuenta
+    api.add_resource(sign_up, '/signup')
+
 # Diccionarios
